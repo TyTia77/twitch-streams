@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Twitch Tv</title>
+    <link rel="icon" href="https://blog.roblox.com/wp-content/uploads/2016/12/Twitch-Icon.png">
+    ​<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://use.fontawesome.com/89e76766d0.js"></script>
+    <!-- ​​<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+    <script src="script.js"></script>
+</head>
+    <body ng-app="twitch" ng-controller="mainCtrl" style="padding: 0; margin: 0;">
+        <div class="container-fluid">
+            <div class="row">
+                <header class="col-xs-12">
+                    <h1 class="col-xs-12 text-center text-capitalize">
+                        <i class="fa fa-twitch" aria-hidden="true"></i>
+                        twitch streams
+                    </h1>
+
+                    <nav class="col-xs-12">
+                        <ul class="nav nav-tabs">
+                          <li role="presentation" class="active" data-value="">
+                              <a class="text-capitalize a" href="#">
+                                  <i class="fa fa-users fa-2x all" aria-hidden="true"></i>
+                                  all users
+                              </a>
+                          </li>
+
+                          <li role="presentation" data-value="online">
+                              <a class="text-capitalize a" href="#online">
+                                  <i class="fa fa-user fa-2x online" aria-hidden="true"></i>
+                                  online
+                              </a>
+                          </li>
+
+                          <li role="presentation" data-value="offline">
+                              <a class="text-capitalize a" href="#offline">
+                                  <i class="fa fa-user fa-2x offline" aria-hidden="true"></i>
+                                  offline
+                              </a>
+                          </li>
+                        </ul>
+                    </nav>
+
+                </header>
+            </div>
+            <div class="row">
+                <main>
+                    <div class="row items" ng-repeat="user in streamers | orderBy: 'display_name' | filter: status">
+                        <img ng-if="user.logo" class="col-xs-4" src="{{user.logo}}" alt="logo">
+                        <i ng-if="!user.logo" class="col-xs-4 fa fa-user-circle-o fa-5x no-logo" aria-hidden="true"></i>
+                        <div class="col-xs-8">{{user.display_name}}</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </body>
+</html>
