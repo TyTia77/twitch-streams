@@ -20,30 +20,27 @@
         <div class="container-fluid">
             <div class="row">
                 <header class="col-xs-12">
-                    <h1 class="col-xs-12 text-center text-capitalize">
+                    <h1 class="col-xs-2 col-sm-12 text-center text-capitalize">
                         <i class="fa fa-twitch" aria-hidden="true"></i>
-                        twitch streams
+                        <span class="hidden-xs">twitch streams</span>
                     </h1>
 
-                    <nav class="col-xs-12">
+                    <nav class="col-xs-10 col-sm-12">
                         <ul class="nav nav-tabs">
                           <li role="presentation" class="active" data-value="">
                               <a class="text-capitalize a" href="#">
-                                  <i class="fa fa-users fa-2x all" aria-hidden="true"></i>
                                   all users
                               </a>
                           </li>
 
                           <li role="presentation" data-value="online">
                               <a class="text-capitalize a" href="#online">
-                                  <i class="fa fa-user fa-2x online" aria-hidden="true"></i>
                                   online
                               </a>
                           </li>
 
                           <li role="presentation" data-value="offline">
                               <a class="text-capitalize a" href="#offline">
-                                  <i class="fa fa-user fa-2x offline" aria-hidden="true"></i>
                                   offline
                               </a>
                           </li>
@@ -54,10 +51,27 @@
             </div>
             <div class="row">
                 <main>
-                    <div class="row items" ng-repeat="user in streamers | orderBy: 'display_name' | filter: status">
-                        <img ng-if="user.logo" class="col-xs-4" src="{{user.logo}}" alt="logo">
-                        <i ng-if="!user.logo" class="col-xs-4 fa fa-user-circle-o fa-5x no-logo" aria-hidden="true"></i>
-                        <div class="col-xs-8">{{user.display_name}}</div>
+
+                    <div class="row">
+                        <div class="card-container col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center" ng-repeat="user in streamers | orderBy: 'display_name' | filter: status">
+                            <div class="user-card" data-link="{{user.url}}" ng-click="userCardClick($event)">
+                                <div ng-if="user.status === 'account closed'" class="account-not-active">
+                                    Account is no longer active
+                                </div>
+                                <div class="header">
+                                    {{user.display_name}}
+                                    <span ng-class="{true : 'online-back', false: 'offline-back'}[user.status === 'online']"></span>
+                                </div>
+                                <img ng-if="user.logo" src="{{user.logo}}" alt="logo">
+
+                                <i
+                                    ng-if="!user.logo"
+                                    class="fa fa-user-circle-o no-logo"
+                                    aria-hidden="true"></i>
+                                <div class="item-text followers-container">{{user.followers}} Followers</div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
                     </div>
                 </main>
             </div>

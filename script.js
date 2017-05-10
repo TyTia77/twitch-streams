@@ -29,13 +29,14 @@ app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
         var url = 'https://wind-bow.gomix.me/twitch-api/';
         var cors = 'https://cors-anywhere.herokuapp.com/';
+        // var cors = 'http://60.242.62.79:8080/';
+        // var cors = 'http://localhost:8080/';
 
         $http.get(cors +url +'streams/' +user).then(function(data){
 
             var chan = data.data._links.channel;
             var user = chan.slice(chan.lastIndexOf('/')+1, chan.length).toLowerCase();
             var status;
-            console.log('user', user);
 
             if(data.data.stream === null){
                 status = 'offline';
@@ -46,22 +47,30 @@ app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
             }
 
             $http.get(cors +url +'channels/' +user).then(function(data){
+                console.log('chan', data.data);
                 $scope.streamers.push({
                     'user': user,
                     'status': status,
                     'logo': data.data.logo,
                     'display_name': data.data.display_name,
-                    'url': data.data.url
+                    'url': data.data.url,
+                    'followers': data.data.followers
                 });
             });
         });
 
     });
 
+    console.log($scope.streamers);
     // handle navbar select
     $('ul li').on('click', function(){
         $('ul li').removeClass('active');
         $scope.status = $(this).attr('data-value');
         $(this).addClass('active');
     });
+
+    $scope.userCardClick = function(e){
+        var link = e.currentTarget.dataset.link;
+        window.open(link, '_blank');
+    }
 }]);
