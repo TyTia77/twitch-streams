@@ -10,10 +10,20 @@ html, body{
 }
 
 header{
-    position: relative;
-    top: -20px;
+    /*position: relative;*/
+    /*top: -20px;*/
+    background-color: #fff;
+    color: white;
+    padding: 0!important;
+}
+
+.gg{
     background-color: #0262B6;
     color: white;
+}
+.navbar-header h1{
+    /*padding: 0;*/
+    margin: 0;
 }
 
 .a{
@@ -21,6 +31,7 @@ header{
     color: white;
     font-weight: bold!important;
 }
+
 
 nav{
     top: 1px;
@@ -109,13 +120,13 @@ main{
     background-color: #D35400;
 }
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
     nav{
         top: 28px;
     }
-}
+}*/
 
-@media screen and (max-width: 388px) {
+/*@media screen and (max-width: 388px) {
     .a{
         font-size: 1em!important;
     }
@@ -128,4 +139,4 @@ main{
         width: 100vw!important;
         top: 1px;
     }
-}
+}*/
