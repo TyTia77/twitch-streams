@@ -47,7 +47,6 @@ app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
             }
 
             $http.get(cors +url +'channels/' +user).then(function(data){
-                console.log('chan', data.data);
                 $scope.streamers.push({
                     'user': user,
                     'status': status,
@@ -61,7 +60,6 @@ app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
     });
 
-    console.log($scope.streamers);
     // handle navbar select
     $('ul li').on('click', function(){
         $('ul li').removeClass('active');
