@@ -49,6 +49,10 @@ nav .container-fluid{
     font-size: 1.5em;
     text-transform: capitalize;
 }
+.navbar-header h1{
+    /*padding: 0;*/
+    margin: 0;
+}
 
 .a{
     color: white!important;
