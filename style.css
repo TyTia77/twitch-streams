@@ -16,10 +16,13 @@ html, body{
     border-radius: 0!important;
 }
 
-/*collapse button*/
-.collapsed{
-    color: white!important;
-    background-color: white;
+.navbar-toggle:hover,
+.navbar-toggle:focus{
+    background-color: rgba(255,255,255,0)!important;
+}
+
+button span{
+    background-color: white!important;
 }
 
 nav .container-fluid{
