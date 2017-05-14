@@ -146,3 +146,11 @@ img{
     color: white;
     background-color: #D35400;
 }
+
+@media screen and (max-width: 768px) {
+    .user-card:hover{
+        cursor: default;
+        border: 1px solid lightgrey;
+        box-shadow: none;
+    }
+}
