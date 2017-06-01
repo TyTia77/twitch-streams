@@ -1,22 +1,5 @@
 var app = angular.module('twitch', ['ngRoute']);
 
-// app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
-//     $locationProvider.hashPrefix('');
-//     $routeProvider
-//         .when('/', {
-//             templateUrl: 'views/all.html'
-//         })
-//         .when('/online', {
-//             templateUrl: 'views/online.html'
-//         })
-//         .when('/offline', {
-//             templateUrl: 'views/offline.html'
-//         })
-//         .otherwise({
-//             redirectTo: '/'
-//         });
-// }]);
-
 app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
 
     var channels = [
@@ -55,6 +38,8 @@ app.controller('mainCtrl', ['$scope', '$http', function($scope, $http){
                     'url': data.data.url,
                     'followers': data.data.followers
                 });
+
+                $scope.ready = true;
             });
         });
 

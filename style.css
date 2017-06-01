@@ -27,11 +27,11 @@ button span{
 }
 
 nav .container-fluid{
-    box-shadow: 1px 2px 10px 1px black;
+    box-shadow: 1px 2px 10px 1px grey;
 }
 
 .navbar{
-    background-color: #0262B6!important;
+    background-color: #0262B6 !important;
     border: none!important;
     border-radius: 0!important;
 }
@@ -57,8 +57,8 @@ nav .container-fluid{
 }
 
 .active .a{
-    color: black!important;
-    background-color: rgba(255,255,255,.6)!important;
+    color: #0262B6 !important;
+    background-color: rgba(255,255,255,.6) !important;
 }
 
 main{
@@ -116,6 +116,7 @@ img{
 
 .user-card{
     border: 1px solid lightgrey;
+    transition-duration: .3s;
 }
 
 .header span{
@@ -142,6 +143,6 @@ img{
     .user-card:hover{
         cursor: pointer;
         border: 1px solid #2C3E50;
-        box-shadow: 1px 2px 3px 1px #2C3E50;
+        box-shadow: 0px 0px 7px 1px #2C3E50;
     }
 }

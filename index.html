@@ -8,14 +8,9 @@
     <link rel="icon" href="https://blog.roblox.com/wp-content/uploads/2016/12/Twitch-Icon.png">
     ​<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://use.fontawesome.com/89e76766d0.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
 </head>
     <body ng-app="twitch" ng-controller="mainCtrl" style="padding: 0; margin: 0;">
+
         <div class="container-fluid app">
             <nav class="navbar navbar-default">
                   <div class="container-fluid">
@@ -56,34 +51,16 @@
                       </ul>
 
                     </div><!-- /.navbar-collapse -->
-                  </div><!-- /.container-fluid -->
-                </nav>
-
-                <main>
-                    <div class="row">
-                        <div class="card-container col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center" ng-repeat="user in streamers | orderBy: 'display_name' | filter: status">
-                            <div class="user-card" data-link="{{user.url}}" ng-click="userCardClick($event)">
-                                <div ng-if="user.status === 'account closed'" class="account-not-active">
-                                    Account is no longer active
-                                </div>
-                                <div class="header">
-                                    {{user.display_name}}
-                                    <span ng-class="{true : 'online-back', false: 'offline-back'}[user.status === 'online']"></span>
-                                </div>
-                                <img ng-if="user.logo" src="{{user.logo}}" alt="logo">
-
-                                <i
-                                    ng-if="!user.logo"
-                                    class="fa fa-user-circle-o no-logo"
-                                    aria-hidden="true"></i>
-                                <div class="item-text followers-container">{{user.followers}} Followers</div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
-                </main>
-
+                </div><!-- /.container-fluid -->
+            </nav>
         </div>
+        <div ng-include="'content.html'"></div>
 
+        <script src="https://use.fontawesome.com/89e76766d0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
     </body>
 </html>
